@@ -1,0 +1,581 @@
+/* Variables CSS pour faciliter les changements de thème */
+:root {
+    --primary-color: #4CAF50; /* Vert */
+    --secondary-color: #2196F3; /* Bleu */
+    --accent-color: #FFC107; /* Ambre */
+    --background-color: #f4f7f6; /* Gris très clair */
+    --surface-color: #ffffff; /* Blanc pour les cartes */
+    --text-color: #333333; /* Texte sombre */
+    --light-text-color: #666666; /* Texte gris clair */
+    --border-color: #e0e0e0; /* Bordure générale */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Ombre légère */
+    --danger-color: #f44336; /* Rouge pour actions dangereuses */
+    --success-color: #4CAF50; /* Vert pour actions réussies */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50; /* Bleu foncé */
+    color: #ecf0f1; /* Blanc cassé */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px var(--shadow-color);
+    flex-shrink: 0; /* Empêche la sidebar de rétrécir */
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: var(--accent-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav li {
+    margin-bottom: 10px;
+}
+
+.main-nav a {
+    display: block;
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 1.05em;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-footer {
+    margin-top: auto; /* Pousse le footer vers le bas */
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+/* Main content */
+.main-content {
+    flex-grow: 1;
+    padding: 20px 30px;
+    overflow-y: auto; /* Permet le défilement si le contenu dépasse */
+}
+
+.main-header {
+    background-color: var(--surface-color);
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.app-title {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 2.2em;
+    display: flex;
+    align-items: center;
+}
+
+.lucky-sign {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.header-info {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    text-align: right;
+}
+
+.header-info p {
+    margin: 5px 0;
+}
+
+.header-info .input-field {
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    color: inherit;
+    width: auto; /* Ajustement automatique de la largeur */
+    text-align: right;
+    padding: 0;
+    cursor: default; /* Curseur par défaut pour les champs readonly/disabled */
+}
+
+/* General Section Styling */
+.content-section {
+    display: none; /* Masqué par défaut */
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.content-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+/* Card Styling */
+.card {
+    background-color: var(--surface-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    margin-bottom: 20px;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.dashboard-card {
+    text-align: center;
+}
+
+.dashboard-card h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.metric-value {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Forms */
+.form-container {
+    padding: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--light-text-color);
+}
+
+.input-field,
+select.input-field {
+    width: calc(100% - 20px); /* 100% moins padding */
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1em;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    box-sizing: border-box; /* Inclut le padding dans la largeur */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus,
+select.input-field:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    outline: none;
+}
+
+/* Style pour les champs bloqués (read-only/disabled) */
+.disabled-field {
+    background-color: #e9ecef; /* Un gris plus prononcé pour la désactivation */
+    color: #6c757d; /* Texte gris plus clair */
+    cursor: not-allowed !important; /* Indique que le champ n'est pas modifiable */
+    border: 1px dashed #ced4da; /* Bordure pointillée pour plus de clarté */
+}
+
+.form-actions {
+    margin-top: 25px;
+    text-align: right;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-left: 10px; /* Espace entre les boutons */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+}
+
+.btn-primary:hover {
+    background-color: #43a047; /* Vert plus foncé */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--surface-color);
+}
+
+.btn-secondary:hover {
+    background-color: #1976d2; /* Bleu plus foncé */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--surface-color);
+}
+
+.btn-danger:hover {
+    background-color: #d32f2f; /* Rouge plus foncé */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: var(--surface-color);
+}
+
+.btn-success:hover {
+    background-color: #388e3c; /* Vert plus foncé */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-edit {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 6px 12px;
+    font-size: 0.85em;
+    margin-right: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #ffb300;
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+    color: var(--surface-color);
+    padding: 6px 12px;
+    font-size: 0.85em;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+/* Data Tables */
+.data-table-section {
+    margin-top: 30px;
+}
+
+.data-table-section h3 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.data-table-container {
+    overflow-x: auto; /* Permet le défilement horizontal sur petits écrans */
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px; /* Empêche le tableau de devenir trop petit */
+}
+
+.data-table th,
+.data-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.data-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Lignes alternées */
+}
+
+.data-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Charts */
+.chart-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+.chart-container figcaption {
+    font-size: 0.85em;
+    color: var(--light-text-color);
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Bilan & Conseils specific */
+.bilan-controls, .conseils-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+    align-items: flex-end; /* Alignement en bas */
+    margin-bottom: 20px;
+}
+
+.bilan-controls .form-group, .conseils-controls .form-group {
+    flex: 1; /* Permet aux groupes de formulaires de prendre de l'espace */
+    min-width: 150px; /* Largeur minimale pour les champs de sélection */
+    margin-bottom: 0; /* Pas de marge en bas si c'est dans une flexbox */
+}
+
+.bilan-entry, .conseils-entry {
+    margin-bottom: 15px;
+    padding: 20px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.bilan-entry h3, .conseils-entry h3 {
+    color: var(--secondary-color);
+    margin-top: 0;
+}
+
+.bilan-entry ul, .conseils-entry ul {
+    list-style: none;
+    padding: 0;
+}
+
+.bilan-entry li, .conseils-entry li {
+    margin-bottom: 8px;
+    font-size: 1.05em;
+}
+
+.profit-positive {
+    color: #28a745; /* Vert pour les bénéfices */
+    font-weight: bold;
+}
+
+.profit-negative {
+    color: #dc3545; /* Rouge pour les pertes */
+    font-weight: bold;
+}
+
+/* Print specific styles */
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+        margin: 0;
+        padding: 0;
+        display: block; /* Supprime le flexbox pour l'impression */
+    }
+
+    .sidebar, .main-header, .form-container, .btn, .nav-link, .content-section:not(.active) {
+        display: none !important; /* Masque les éléments non essentiels à l'impression */
+    }
+
+    .main-content {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        overflow: visible;
+    }
+
+    .content-section.active {
+        display: block !important;
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-after: always; /* Force un saut de page après chaque section imprimée */
+    }
+
+    .card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+
+    .data-table {
+        width: 100%;
+    }
+
+    .data-table th, .data-table td {
+        border: 1px solid #000;
+        padding: 5px;
+    }
+
+    h1, h2, h3 {
+        color: #000;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .chart-container {
+        display: none; /* Les graphiques peuvent être problématiques à imprimer en HTML pur */
+    }
+
+    /* Assurez-vous que les métriques principales sont visibles */
+    .dashboard-grid {
+        display: block; /* Empêche le grid layout pour l'impression si nécessaire */
+    }
+    .dashboard-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .sidebar-header {
+        margin-bottom: 20px;
+    }
+
+    .main-nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .main-nav li {
+        margin-bottom: 0;
+    }
+
+    .main-nav a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .app-title {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+    }
+
+    .header-info {
+        width: 100%;
+        text-align: left;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .data-table-container {
+        overflow-x: auto;
+    }
+
+    .data-table {
+        min-width: 100%;
+    }
+
+    .form-group label {
+        font-size: 0.9em;
+    }
+
+    .input-field {
+        font-size: 0.9em;
+        padding: 8px;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9em;
+        margin-left: 5px;
+    }
+
+    .bilan-controls, .conseils-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .bilan-controls .form-group, .conseils-controls .form-group {
+        width: 100%;
+        min-width: unset;
+    }
+}
